@@ -1,29 +1,47 @@
 import React from 'react';
-import { makeStyles, AppBar, Toolbar, IconButton, Typography, Button, } from '@material-ui/core'
+import { makeStyles, AppBar, Toolbar, IconButton, Typography, Button, ThemeProvider } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme)=>({
     root:{
-        background: 'gray',
+        background: theme.palette.primary.main,
         height: '100vh'
+    },
+    appBar : {
+        boxShadow:'none'
+    },
+    icons:{
+        paddingRight: theme.spacing(2)
+    },
+    grow: {
+        flexGrow: '1'
     }
-})
+}))
 
 function Home() {
     const classes = useStyles()
     return (
         <div className={classes.root}>
 
-            <AppBar>
+            <AppBar color="inherit" className={classes.appBar}>
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    <IconButton  className={classes.icons} color="inherit">
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                        News
-                    </Typography>
-                    <Button color="inherit">Login</Button>
+                    <div className={classes.grow} />
+                    <IconButton  className={classes.icons} color="inherit">
+                        <MenuIcon />
+                    </IconButton>
+                    <IconButton  className={classes.icons} color="inherit">
+                        <MenuIcon />
+                    </IconButton>
+                    <IconButton  className={classes.icons} color="inherit">
+                        <MenuIcon />
+                    </IconButton>
+                    <Button startIcon={<AccountCircle />} variant="outlined" color="secondary">Fazer login</Button>
                 </Toolbar>
             </AppBar>
 
