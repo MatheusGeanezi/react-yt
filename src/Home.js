@@ -41,7 +41,7 @@ function Home() {
                     <IconButton  className={classes.icons} color="inherit">
                         <MenuIcon />
                     </IconButton>
-                    <Button startIcon={<AccountCircle />} variant="outlined" color="secondary">Fazer loginn</Button>
+                    <Button startIcon={<AccountCircle />} variant="outlined" color="secondary">Fazer login</Button>
                 </Toolbar>
             </AppBar>
 
