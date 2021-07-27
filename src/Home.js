@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, AppBar, Toolbar, IconButton, Typography, Button, ThemeProvider, Drawer,List,Divider,ListItem,ListItemText,ListItemIcon } from '@material-ui/core'
+import { makeStyles, AppBar, Toolbar, IconButton, Typography, Button, ThemeProvider, Drawer,List,Divider,ListItem,ListItemText,ListItemIcon,Box,Grid } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import VideoCall from '@material-ui/icons/VideoCall';
@@ -8,6 +8,8 @@ import MoreVert from '@material-ui/icons/MoreVert';
 import HomeIcon from '@material-ui/icons/Home';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
+import VideoLibrary from '@material-ui/icons/VideoLibrary';
+import History from '@material-ui/icons/History';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -73,38 +75,69 @@ function Home() {
                     <Button startIcon={<AccountCircle />} variant="outlined" color="secondary">Fazer login</Button>
                 </Toolbar>
             </AppBar>
-            <Drawer
-                className={classes.drawer}
-                variant="permanent"
-                classes={{
-                    paper: classes.drawerPaper,
-                }}
-            >
-                <Toolbar />
-                <div className={classes.drawerContainer}>
-                    <List>
-                        <ListItem button classes={{root: classes.ListItem}}>
-                            <ListItemIcon>{<HomeIcon />}</ListItemIcon>
-                            <ListItemText classes={{
-                                primary: classes.ListItemText
-                            }} primary={'Inicio'} />
-                        </ListItem>
-                        <ListItem button classes={{root: classes.ListItem}}>
-                            <ListItemIcon>{<WhatshotIcon />}</ListItemIcon>
-                            <ListItemText classes={{
-                                primary: classes.ListItemText
-                            }} primary={'Em alta'} />
-                        </ListItem>
-                        <ListItem button classes={{root: classes.ListItem}}>
-                            <ListItemIcon>{<SubscriptionsIcon />}</ListItemIcon>
-                            <ListItemText classes={{
-                                primary: classes.ListItemText
-                            }} primary={'Inscrições'} />
-                        </ListItem>
-                    </List>
-                    <Divider />
-                </div>
-            </Drawer>
+            <Box display="flex">
+                <Drawer className={classes.drawer} variant="permanent" classes={{ paper: classes.drawerPaper, }}>
+                    <Toolbar />
+                    <div className={classes.drawerContainer}>
+                        <List>
+                            <ListItem button classes={{root: classes.ListItem}}>
+                                <ListItemIcon>{<HomeIcon />}</ListItemIcon>
+                                <ListItemText classes={{
+                                    primary: classes.ListItemText
+                                }} primary={'Inicio'} />
+                            </ListItem>
+                            <ListItem button classes={{root: classes.ListItem}}>
+                                <ListItemIcon>{<WhatshotIcon />}</ListItemIcon>
+                                <ListItemText classes={{
+                                    primary: classes.ListItemText
+                                }} primary={'Em alta'} />
+                            </ListItem>
+                            <ListItem button classes={{root: classes.ListItem}}>
+                                <ListItemIcon>{<SubscriptionsIcon />}</ListItemIcon>
+                                <ListItemText classes={{
+                                    primary: classes.ListItemText
+                                }} primary={'Inscrições'} />
+                            </ListItem>
+                        </List>
+                        <Divider />
+                        <List>
+                            <ListItem button classes={{root: classes.ListItem}}>
+                                <ListItemIcon>{<VideoLibrary />}</ListItemIcon>
+                                <ListItemText classes={{
+                                    primary: classes.ListItemText
+                                }} primary={'Biblioteca'} />
+                            </ListItem>
+                            <ListItem button classes={{root: classes.ListItem}}>
+                                <ListItemIcon>{<History />}</ListItemIcon>
+                                <ListItemText classes={{
+                                    primary: classes.ListItemText
+                                }} primary={'Historico'} />
+                            </ListItem>
+                        </List>
+                        <Divider />
+                        <Box p={5}>
+                        <Typography variant='body1'>
+                                Faça login para curtir vídeos,comentar e se inscrever
+                        </Typography>   
+                            <Box mt={2}>
+                                <Button startIcon={<AccountCircle />} variant="outlined" color="secondary">Fazer login</Button>
+                            </Box>   
+                        </Box>
+                        <Divider />
+                    </div>
+                </Drawer>
+                <Box p={8}>
+                   <Toolbar/>
+                        <Typography variant="h5" color='textPrimary' style={{fontWeight:800}}>
+                                Recomendados
+                        </Typography>
+                    <Grid container>
+                        <Grid item>TESTE</Grid>
+                        <Grid item>TESTE</Grid>
+                        <Grid item>TESTE</Grid>
+                    </Grid>
+                </Box>
+            </Box>
         </div>
     );
 }
